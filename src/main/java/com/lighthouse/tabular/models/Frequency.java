@@ -1,6 +1,6 @@
 package com.lighthouse.tabular.models;
 
-public class Interval {
+public class Frequency {
     private int intervalMillis;
 
     public int getIntervalMillis() {

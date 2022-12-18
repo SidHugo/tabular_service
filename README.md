@@ -11,10 +11,12 @@ Update frequency can be changed in Web GUI.
 You can sort content by element's name or price.
 
 Server side configuration is stored in [application.yml](src/main/resources/application.yml). It has following parameters:
-- `update_frequency_milliseconds` - frequency update in milliseconds
+- `update_frequency_milliseconds` - update frequency in milliseconds
 - `elements_per_update` - amount of elements per each update
 - `max_price` - maximum possible price that could be generated
 - `symbols` - array of symbols
+- `min_update_frequency_milliseconds` - minimum possible update frequency
+- `max_update_frequency_milliseconds` - maximum possible update frequency
 
 Service is packaged with frontend bundle. So after running it you can go to `http://localhost:8080` in your browser to open Web GUI.
 

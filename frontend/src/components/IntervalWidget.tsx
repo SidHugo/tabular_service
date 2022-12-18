@@ -2,6 +2,7 @@ import React from 'react';
 import { useAppSelector, useAppDispatch } from '../store/hooks'
 import {Button, Grid, InputAdornment, TextField} from "@mui/material";
 import {selectInterval, set} from "../store/intervalWidgetSlice";
+import { ToastContainer, toast } from 'react-toastify';
 
 
 export function IntervalWidget() {
@@ -13,14 +14,21 @@ export function IntervalWidget() {
     }
 
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-        fetch('/config/updateInterval', {
+        fetch('/config/updateFrequency', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ intervalMillis: interval })
+        }).then(response => {
+            if (!response.ok) {
+                response.json().then(
+                    json => toast.error(json.message)
+                )
+            }
         })
     }
 
     return <div>
+        <ToastContainer />
         <Grid container spacing={1}>
             <Grid item xs={6}>
                 <TextField

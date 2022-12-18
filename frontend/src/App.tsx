@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
 import {ElementsTable} from "./components/table/ElementsTable";
 import {Provider} from "react-redux";
 import store from './store/store'
